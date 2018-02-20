@@ -68,3 +68,14 @@ courriel:req.body.courriel
  res.redirect('/list')
  })
 })
+
+// =========== POUR DETRUIRE
+app.get('/detruire/:id', (req, res) => {
+	let id = req.params.id 
+	let critere = ObjectID(req.params.id)
+
+ db.collection('adresse').findOneAndDelete({"_id": critere}, (err, resultat) => {
+	if (err) return console.log(err)
+ 		res.redirect('/list')
+ 	})
+})
