@@ -1,1 +1,1 @@
-table{border-collapse:collapse}table tbody td{border:1px solid #000}
+header{background-color:#1c1c1c;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center}header nav a{color:#fff;text-decoration:none;padding-left:1em}header section{display:flex;flex-direction:column;justify-content:center;align-items:center}table{border-collapse:collapse}table tbody td{border:1px solid #000}
