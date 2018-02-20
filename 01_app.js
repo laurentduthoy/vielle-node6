@@ -36,10 +36,35 @@ app.get('/list', function (req, res) {
 })
 
 // ====================== POUR AJOUTER
-app.post('/modifier', (req, res) => {
- db.collection('adresse').save(req.body, (err, result) => {
+app.post('/ajouter', (req, res) => {
+console.log('req.body' + req.body)
+ if (req.body['_id'] != '')
+ { 
+ console.log('sauvegarde') 
+ var oModif = {
+ "_id": ObjectID(req.body['_id']), 
+ nom: req.body.nom,
+ prenom:req.body.prenom, 
+ telephone:req.body.telephone,
+courriel:req.body.courriel
+ }
+ var util = require("util");
+ console.log('util = ' + util.inspect(oModif));
+ }
+ else
+ {
+ console.log('insert')
+ console.log(req.body)
+ var oModif = {
+ nom: req.body.nom,
+ prenom:req.body.prenom, 
+ telephone:req.body.telephone,
+courriel:req.body.courriel
+ }
+ }
+ db.collection('adresse').save(oModif, (err, result) => {
  if (err) return console.log(err)
  console.log('sauvegarder dans la BD')
- res.redirect('/accueil')
+ res.redirect('/list')
  })
 })
