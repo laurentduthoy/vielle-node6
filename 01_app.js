@@ -79,3 +79,14 @@ app.get('/detruire/:id', (req, res) => {
  		res.redirect('/list')
  	})
 })
+
+
+// =============== POUR TRIER
+app.get('/trier/:cle/:ordre', (req, res) => {
+let cle = req.params.cle
+ let ordre = (req.params.ordre == 'asc' ? 'asc' : 'desc')
+ let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
+ ordre = !ordre;
+ res.render('components/adresse.ejs', {adresses: resultat, cle, ordre })
+})
+})
