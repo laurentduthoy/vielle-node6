@@ -1,3 +1,8 @@
+*{
+	margin: 0;
+	padding:0;
+}
+
 header{
 	background-color: #1c1c1c;
 	color: white;
@@ -25,11 +30,26 @@ header{
 
 table{
 	border-collapse: collapse;
+	margin:1em;
 	tbody{
-		td,td{
+		td,td,th{
+			width: 10em;
 			border: 1px solid black;
 		}
 	}
 	
 }
 
+footer{
+	width: 100%;
+	background-color: #1b1b1b;
+	display: flex;
+	flex-direction:row;
+
+
+	a{
+		color:white;
+		text-decoration: none;
+		list-style: none;
+	}
+}
